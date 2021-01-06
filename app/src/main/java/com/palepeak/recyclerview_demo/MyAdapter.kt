@@ -17,6 +17,7 @@ class MyAdapter(private val dataSet: List<MainActivity.ListEntries>) :
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView = view.textView
         val textView2 = view.textView2
+        val switch = view.switch1
     }
 
     // Create new views (invoked by the layout manager)
@@ -35,6 +36,10 @@ class MyAdapter(private val dataSet: List<MainActivity.ListEntries>) :
         // contents of the view with that element
         viewHolder.textView.text = dataSet[position].entry1
         viewHolder.textView2.text = dataSet[position].entry2
+
+        viewHolder.switch.setOnCheckedChangeListener { _, b -> dataSet[position].switched = b }
+        viewHolder.switch.isChecked = dataSet[position].switched
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

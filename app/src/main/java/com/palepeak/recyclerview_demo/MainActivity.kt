@@ -39,5 +39,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    data class ListEntries(val entry1: String, val entry2: String)
+    data class ListEntries(val entry1: String, val entry2: String, var switched: Boolean = false)
 }
